@@ -84,8 +84,18 @@ router.post('/:caId', (req, res, next) => {
 
 // gestionează cererile pe PATCH
 router.patch('/:caId', (req, res, next) => {
-    res.sendStatus(200).json({
-        mesaj: 'înregistrare cronică actualizată'
+    const id = req.param.caId;
+    const updOps = {};
+    for (let [key, value] of Object.entries(req.body)){
+        // console.log(key, value);
+        updOps[key] = value;
+    }
+    Product.update({id}, { 
+        $set: updOps
+    }).then(result => {
+        res.json({result});
+    }).catch(err => {
+        res.json({message: err.message});
     });
 });
 
