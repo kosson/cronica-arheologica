@@ -73,9 +73,12 @@ router.patch('/:preloaderId', (req, res, next) => {
 
 // gestionează cererile pe DELETE
 router.delete('/:preloaderId', (req, res, next) => {
-    res.sendStatus(200).json({
-        mesaj: 'înregistrare preloader eliminată'
-    });
+    const id = req.params.preloaderId;
+    Product.remove({id}).then(result => {
+        res.json(result);
+    }).catch(err => {
+        res.json({error: err.message});
+    }); // șterge toare înregistrările cu acest id
 });
 
 module.exports = router;

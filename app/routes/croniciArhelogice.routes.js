@@ -91,9 +91,12 @@ router.patch('/:caId', (req, res, next) => {
 
 // gestionează cererile pe DELETE
 router.delete('/:caId', (req, res, next) => {
-    res.status(200).json({
-        mesaj: 'înregistrare cronică eliminată'
-    });
+    const id = req.params.caId;
+    Product.remove({id}).then(result => {
+        res.json(result);
+    }).catch(err => {
+        res.json({error: err.message});
+    }); // șterge toare înregistrările cu acest id
 });
 
 module.exports = router;
