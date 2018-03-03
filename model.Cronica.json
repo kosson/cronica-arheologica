@@ -1,0 +1,44 @@
+{
+    "denumire": "TEST TEST - această înregistrare este luată din Repertoriul Arheologic Român",
+    "localitate": "Bacău",
+    "judet": "Bacău",
+    "adresa": "Str. Câmpului, nr 23",
+    "UAT": "217",
+    "SIRUTA": "20304",
+    "RAN": "20304.01",
+    "toponim": "",
+    "sector": "",
+    "anul": "2004",
+    "tipsit": "biserică şi necropolă",
+    "categoriesit": "structură de cult/religioasă",
+    "perioade": "sec. XV - XVI, sf. sec. XV-mijl. sec. XIX",
+    "epoci": ["Epoca medievală"],
+    "culturi": ["XXX","YYY"],
+    "colectiv": [
+      {
+        "numepre": "George Zaharia",
+        "afiliere": "Institutul „Nicolaie Iorga”, București",
+        "rol": "responsabil de șantier",
+        "tipcercetare": ""
+      },
+      {
+        "numepre": "Panit Ștefan",
+        "afiliere": "Universitatea din București, Catedra de istori”, București",
+        "rol": "cercetător",
+        "tipcercetare": "ceva"
+      }
+    ],
+    "nrautorizatie": "2324",
+    "anautoriz": "2001",
+    "valcontract": "32434354",
+    "datainceperii": "12.10.2004",
+    "datafinalizarii": "23.04.2007",
+    "prezentaresit": "Aceasta este o biserică splendidă",
+    "obiectivele": "Am urmărit punerea în valoare a stratigrafiei",
+    "rezultateleinterpretare": "http://www.cimec.ro/cronicaarheo/2030401/rezultate",
+    "scurtadescriere": "http://www.cimec.ro/cronicaarheo/2030401/descriere",
+    "tehnicianaliza": "http://www.cimec.ro/cronicaarheo/2030401/analiza",
+    "concluziirap": "http://www.cimec.ro/cronicaarheo/2030401/concluzii",
+    "referintebibl": "http://www.cimec.ro/cronicaarheo/2030401/bibliografie",
+    "rezumat": "http://www.cimec.ro/cronicaarheo/2030401/rezumat"
+  }

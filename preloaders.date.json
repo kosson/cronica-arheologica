@@ -1,0 +1,151 @@
+{
+    "anulAdoptarii": "2010",
+    "prinAct": "Ordinul nr. 2562/4.10.2010",
+    "tipuriSit": [{
+        "1": {
+            "nume": "locuire",
+            "11": {
+                "nume":"locuire civilă",
+                "111": "așezare deschisă",
+                "112": "așezare fortificată",
+                "113": "așezare urbană",
+                "114": "așezare rurală",
+                "115": "locuire in peșteră",
+                "116": "locuire sezonieră",
+                "117": "tell"
+            },
+            "12": {
+                "nume": "locuire militară",
+                "121": "castru",
+                "122": "cetate",
+                "123": "castel",
+                "124": "fort",
+                "125": "fortificații"
+            },
+            "13": {
+                "nume": "structură de cult/religioasă",
+                "131": "templu",
+                "132": "sanctuar",
+                "133": "biserică",
+                "134": "mănăstire"
+            }
+        },
+        "2": {
+            "nume": "descoperire funerară",
+            "21": {
+                "nume": "necropolă",
+                "211": "necropolă plană",
+                "212": "necropolă tumulară"
+            },
+            "22": {
+                "nume": "mormânt izolat",
+                "221": "mormânt tumular",
+                "222": "mormânt"
+            }
+        },
+        "3": {
+            "nume": "descoperire izolată",
+            "31": {
+                "nume": "depozit/tezaur",
+                "311": "depozit de bronzuri",
+                "312": "tezaur",
+                "313": "tezaur monetar"
+            },
+            "32": {
+                "nume": "obiect izolat"
+            }
+        },
+        "4": {
+            "nume": "exploatare/carieră",
+            "41": "exploatare minieră",
+            "42": "carieră"
+        }
+        
+    },{
+        "2": "descoperire funerară"
+    },{
+        "3": "descoperire izolată"
+    },{
+        "4": "exploatare/carieră"
+    }],
+    "listaEpoci": [{
+        "1": {
+            "nume": "Preistorie",
+            "11": {
+                "nume": "Paleolitic",
+                "111": "Paleolitic inferior",
+                "112": "Paleolitic mijlociu",
+                "113": "Paleolitic superior"
+            },
+            "12": {
+                "nume": "Mezolitic"
+            },
+            "13": {
+                "nume": "Neolitic",
+                "131": "Neolitic timpuriu",
+                "132": "Neolitic mijlociu",
+                "133": "Neolitic târziu"
+            },
+            "14": {
+                "nume": "Eneolitic",
+                "141": "Eneolitic timpuriu",
+                "142": "Eneolitic mijlociu",
+                "143": "Eneolitic târziu"
+            },
+            "15": {
+                "nume": "Epoca bronzului",
+                "151": "Epoca bronzului timpuriu",
+                "152": "Epoca bronzului mijlociu",
+                "153": "Epoca bronzului târziu"
+            },
+            "16": {
+                "nume": "Hallstatt",
+                "161": "Hallstatt timpuriu",
+                "162": "Hallstatt mijlociu",
+                "163": "Hallstatt târziu"
+            }
+        },
+        "2": {
+            "nume": "Protoistorie",
+            "21": {
+                "nume": "La Tène",
+                "211": "La Tène timpuriu",
+                "212": "La Tène mijlociu",
+                "213": "La Tène târziu"
+            }
+        },
+        "3": {
+            "nume": "Epoca antică",
+            "31": {
+                "nume": "Epoca greacă",
+                "311": "Epoca arhaică",
+                "312": "Epoca clasică",
+                "313": "Epoca elenistică"
+            },
+            "32": {
+                "nume": "Epoca romană",
+                "321": "Epoca romană timpurie",
+                "322": "Epoca romană târzie"
+            },
+            "33": {
+                "nume": "Epoca postromană"
+            },
+            "34": {
+                "nume": "Epoca romano-bizantină"
+            }
+        },
+        "4": {
+            "nume": "Epoca medievală",
+            "41": "Epoca bizantină",
+            "42": "Epoca migrațiilor",
+            "43": {
+                "nume": "Epoca medievală",
+                "431": "Epoca medievală timpurie",
+                "432": "Epoca medievală târzie"
+            }
+        },
+        "5": {
+            "nume": "Epoca modernă"
+        }
+    }]
+}
