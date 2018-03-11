@@ -1,11 +1,16 @@
+/**
+ * Realizarea rutelor API-ului
+ * Dependințe: express, mongoose, modelul de cronică
+ */
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Cronica = require('../models/croniciArheologice.model');
 
-// gestionează cererile pe GET
+// GET
 router.get('/', (req, res, next) => {
-    Cronica.find().exec().then(cronici => {
+    Cronica.find().exec().then( cronici => {
         console.log(cronici);
         res.json(cronici);
     }).catch(err => {
@@ -17,8 +22,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// gestionează cererile pe GET cu id
-
+// GET cu id
 router.get('/:caId', (req, res, next) => {
     const id = req.params.caId;
     Cronica.findById(id).exec().then(doc => {
@@ -30,7 +34,7 @@ router.get('/:caId', (req, res, next) => {
     });
 });
 
-// gestionează cererile cu POST
+// POST
 router.post('/', (req, res, next) => {    
     // Încarcă cu date modelul
     const cronica = new Cronica({

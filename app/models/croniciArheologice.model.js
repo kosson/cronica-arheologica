@@ -1,5 +1,10 @@
+/**
+ * Constituirea modelului de date pentru înregistrare
+ * Dependințe: mongoose
+ */
 var mongoose = require('mongoose');
 
+// Constituirea unui subdocument
 var Colectiv = mongoose.Schema({
   numeprenum: {type: String, trim: true},
   afiliere: [{type: String, trim: true}],
@@ -7,6 +12,8 @@ var Colectiv = mongoose.Schema({
   tipcercetare: [{type: String, trim: true}]
 });
 
+// Constituirea înregistrării principală
+// atașez subdocumentul Colectiv
 var Cronica = mongoose.Schema({
       _id: mongoose.Schema.Types.ObjectId,
       denumire: {

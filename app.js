@@ -15,21 +15,24 @@ mongoose.connection.once('open', function() {
     console.log("M-am conectat la bază! Totul OK!");
 });
 
-// importă rutele pentru cronici
+/**
+ * IMPORTĂ RUTELE:
+ * - cronici
+ * - preloadere
+ * - user
+*/
 const caRoutes = require('./app/routes/croniciArhelogice.routes');
-// importă rutele pentru preloadere
 const preloadRoutes = require('./app/routes/preloaders.routes');
+const userRoutes = require('./app/routes/user');
 
 /*MIDDLEWARE-UL folosit*/
-// fă logging la rute
-app.use(morgan('dev'));
-// parsează corpul cererii
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(morgan('dev')); // fă logging la rute
+app.use(bodyParser.urlencoded({extended: false}));  // parsează corpul cererii
 app.use(bodyParser.json());
 
 /*TRATAREA CORS*/
-// trimiți de la server headerele
 app.use((req, res, next) => {
+    // trimiți de la server headerele
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Acces-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     // tratează OPTIONS trimise de browser înainte de a face postingul - preflight
@@ -40,9 +43,12 @@ app.use((req, res, next) => {
     next(); // invocă next pentru a trimite cererile pe rute
 });
 
-// forwarding la gestionarii de rute
+/**
+ * RUTELE APLICAȚIEI
+*/
 app.use('/cronicile', caRoutes);
 app.use('/preloaders', preloadRoutes);
+app.use('/user', userRoutes);
 
 /*Crearea mecanismului de tratare a erorilor*/
 // colectează toate erorile care ar putea apărea
