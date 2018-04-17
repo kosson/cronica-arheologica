@@ -34,4 +34,8 @@ Body setează-l la raw cu opțiunea JSON(application/JSON). Întrodu obiectul JS
 
 ## PATCH localhost:8000/cronicile/idulCunoscutAlUneiÎnregistrari
 
-ody setează-l la raw cu opțiunea JSON(application/JSON). Întrodu obiectul JSON care actualizează câmpurile dorite și Send.
+Body setează-l la raw cu opțiunea JSON(application/JSON). Întrodu obiectul JSON care actualizează câmpurile dorite și Send.
+
+## DELETE localhost:8000/cronicile/idulCunoscutAlUneiÎnregistrari
+
+Șterge o înregistrare a cărui identificator este cunoscut.
