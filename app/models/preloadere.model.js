@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+
+// schema de date pentru preloadere
 const Preloader = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   anulAdoptarii: String,

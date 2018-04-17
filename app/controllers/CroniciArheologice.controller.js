@@ -1,17 +1,12 @@
-/**
- * Controler pentru CRUD cronici
- * #1 importă modelul
- */
-var Cronica = require('../models/croniciArheologice.model');
+// acest fișier conține toate metodele necesare controlului CRUD
+var Form01 = require('../models/form01.model.js');
 
 // creează o înregistrare nouă
-exports.create = function (req, res) {
-    if(!req.body.content) {
-      res.send({
-        message: "Nu pot trimite o înregistrare goală în bază!"
-      });
-    };
-    var record = new Cronica({
+exports.create = function(req, res) {
+  if(!req.body.content) {
+      res.status(400).send({message: "Nu pot trimite o înregistrare goală în bază!"});
+    }
+    var form01 = new Form01({
       localitate:  req.body.localitate,
       judet:  req.body.judet,
       adresa:  req.body.adresa,
@@ -46,7 +41,8 @@ exports.create = function (req, res) {
       referintebibl: String,
       rezumat: String
     });
-    records.save( function (err, data) {
+    // title: req.body.title || "Untitled Note", content: req.body.content
+    note.save( function(err, data) {
         console.log(data);
         if(err) {
             console.log(err);

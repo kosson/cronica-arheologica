@@ -1,4 +1,4 @@
-{
+[{
     "denumire": "TEST TEST - această înregistrare este luată din Repertoriul Arheologic Român",
     "localitate": "Bacău",
     "judet": "Bacău",
@@ -41,4 +41,891 @@
     "concluziirap": "http://www.cimec.ro/cronicaarheo/2030401/concluzii",
     "referintebibl": "http://www.cimec.ro/cronicaarheo/2030401/bibliografie",
     "rezumat": "http://www.cimec.ro/cronicaarheo/2030401/rezumat"
+  },
+  {
+    "fields": [
+      {
+        "name": "_id",
+        "path": "_id",
+        "count": 1,
+        "types": [
+          {
+            "name": "ObjectID",
+            "bsonType": "ObjectID",
+            "path": "_id",
+            "count": 1,
+            "values": [
+              "5a9aa163f0b9330452e333e8"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "ObjectID",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "__v",
+        "path": "__v",
+        "count": 1,
+        "types": [
+          {
+            "name": "Int32",
+            "bsonType": "Int32",
+            "path": "__v",
+            "count": 1,
+            "values": [
+              0
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "Int32",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "actualizat",
+        "path": "actualizat",
+        "count": 1,
+        "types": [
+          {
+            "name": "Date",
+            "bsonType": "Date",
+            "path": "actualizat",
+            "count": 1,
+            "values": [
+              "2018-03-03T13:21:39.339Z"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "Date",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "adresa",
+        "path": "adresa",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "adresa",
+            "count": 1,
+            "values": [
+              "Str. Câmpului, nr 23"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "anautoriz",
+        "path": "anautoriz",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "anautoriz",
+            "count": 1,
+            "values": [
+              "2001"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "anul",
+        "path": "anul",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "anul",
+            "count": 1,
+            "values": [
+              "2004"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "categoriesit",
+        "path": "categoriesit",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "categoriesit",
+            "count": 1,
+            "values": [
+              "structură de cult/religioasă"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "colectiv",
+        "path": "colectiv",
+        "count": 1,
+        "types": [
+          {
+            "name": "Array",
+            "bsonType": "Array",
+            "path": "colectiv",
+            "count": 1,
+            "types": [
+              {
+                "name": "Document",
+                "bsonType": "Document",
+                "path": "colectiv",
+                "count": 2,
+                "fields": [
+                  {
+                    "name": "_id",
+                    "path": "colectiv._id",
+                    "count": 2,
+                    "types": [
+                      {
+                        "name": "ObjectID",
+                        "bsonType": "ObjectID",
+                        "path": "colectiv._id",
+                        "count": 2,
+                        "values": [
+                          "5a9aa163f0b9330452e333ea",
+                          "5a9aa163f0b9330452e333e9"
+                        ],
+                        "total_count": 0,
+                        "probability": 1,
+                        "unique": 2,
+                        "has_duplicates": false
+                      }
+                    ],
+                    "total_count": 2,
+                    "type": "ObjectID",
+                    "has_duplicates": false,
+                    "probability": 1
+                  },
+                  {
+                    "name": "afiliere",
+                    "path": "colectiv.afiliere",
+                    "count": 2,
+                    "types": [
+                      {
+                        "name": "Array",
+                        "bsonType": "Array",
+                        "path": "colectiv.afiliere",
+                        "count": 2,
+                        "types": [
+                          {
+                            "name": "String",
+                            "bsonType": "String",
+                            "path": "colectiv.afiliere",
+                            "count": 2,
+                            "values": [
+                              "Institutul „Nicolaie Iorga”, București",
+                              "Universitatea din București, Catedra de istori”, București"
+                            ],
+                            "total_count": 0,
+                            "probability": 1,
+                            "unique": 2,
+                            "has_duplicates": false
+                          }
+                        ],
+                        "lengths": [
+                          1,
+                          1
+                        ],
+                        "total_count": 2,
+                        "probability": 1,
+                        "average_length": 1
+                      }
+                    ],
+                    "total_count": 2,
+                    "type": "Array",
+                    "has_duplicates": false,
+                    "probability": 1
+                  },
+                  {
+                    "name": "rol",
+                    "path": "colectiv.rol",
+                    "count": 2,
+                    "types": [
+                      {
+                        "name": "Array",
+                        "bsonType": "Array",
+                        "path": "colectiv.rol",
+                        "count": 2,
+                        "types": [
+                          {
+                            "name": "String",
+                            "bsonType": "String",
+                            "path": "colectiv.rol",
+                            "count": 2,
+                            "values": [
+                              "responsabil de șantier",
+                              "cercetător"
+                            ],
+                            "total_count": 0,
+                            "probability": 1,
+                            "unique": 2,
+                            "has_duplicates": false
+                          }
+                        ],
+                        "lengths": [
+                          1,
+                          1
+                        ],
+                        "total_count": 2,
+                        "probability": 1,
+                        "average_length": 1
+                      }
+                    ],
+                    "total_count": 2,
+                    "type": "Array",
+                    "has_duplicates": false,
+                    "probability": 1
+                  },
+                  {
+                    "name": "tipcercetare",
+                    "path": "colectiv.tipcercetare",
+                    "count": 2,
+                    "types": [
+                      {
+                        "name": "Array",
+                        "bsonType": "Array",
+                        "path": "colectiv.tipcercetare",
+                        "count": 2,
+                        "types": [
+                          {
+                            "name": "String",
+                            "bsonType": "String",
+                            "path": "colectiv.tipcercetare",
+                            "count": 2,
+                            "values": [
+                              "",
+                              "ceva"
+                            ],
+                            "total_count": 0,
+                            "probability": 1,
+                            "unique": 2,
+                            "has_duplicates": false
+                          }
+                        ],
+                        "lengths": [
+                          1,
+                          1
+                        ],
+                        "total_count": 2,
+                        "probability": 1,
+                        "average_length": 1
+                      }
+                    ],
+                    "total_count": 2,
+                    "type": "Array",
+                    "has_duplicates": false,
+                    "probability": 1
+                  }
+                ],
+                "total_count": 0,
+                "probability": 1
+              }
+            ],
+            "lengths": [
+              2
+            ],
+            "total_count": 2,
+            "probability": 1,
+            "average_length": 2
+          }
+        ],
+        "total_count": 1,
+        "type": "Array",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "concluziirap",
+        "path": "concluziirap",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "concluziirap",
+            "count": 1,
+            "values": [
+              "http://www.cimec.ro/cronicaarheo/2030401/concluzii"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "culturi",
+        "path": "culturi",
+        "count": 1,
+        "types": [
+          {
+            "name": "Array",
+            "bsonType": "Array",
+            "path": "culturi",
+            "count": 1,
+            "types": [
+              {
+                "name": "String",
+                "bsonType": "String",
+                "path": "culturi",
+                "count": 2,
+                "values": [
+                  "XXX",
+                  "YYY"
+                ],
+                "total_count": 0,
+                "probability": 1,
+                "unique": 2,
+                "has_duplicates": false
+              }
+            ],
+            "lengths": [
+              2
+            ],
+            "total_count": 2,
+            "probability": 1,
+            "average_length": 2
+          }
+        ],
+        "total_count": 1,
+        "type": "Array",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "datafinalizarii",
+        "path": "datafinalizarii",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "datafinalizarii",
+            "count": 1,
+            "values": [
+              "23.04.2007"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "datainceperii",
+        "path": "datainceperii",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "datainceperii",
+            "count": 1,
+            "values": [
+              "12.10.2004"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "denumire",
+        "path": "denumire",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "denumire",
+            "count": 1,
+            "values": [
+              "TEST TEST - această înregistrare este luată din Repertoriul Arheologic Român"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "epoci",
+        "path": "epoci",
+        "count": 1,
+        "types": [
+          {
+            "name": "Array",
+            "bsonType": "Array",
+            "path": "epoci",
+            "count": 1,
+            "types": [
+              {
+                "name": "String",
+                "bsonType": "String",
+                "path": "epoci",
+                "count": 1,
+                "values": [
+                  "Epoca medievală"
+                ],
+                "total_count": 0,
+                "probability": 1,
+                "unique": 1,
+                "has_duplicates": false
+              }
+            ],
+            "lengths": [
+              1
+            ],
+            "total_count": 1,
+            "probability": 1,
+            "average_length": 1
+          }
+        ],
+        "total_count": 1,
+        "type": "Array",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "judet",
+        "path": "judet",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "judet",
+            "count": 1,
+            "values": [
+              "Bacău"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "localitate",
+        "path": "localitate",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "localitate",
+            "count": 1,
+            "values": [
+              "Bacău"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "nrautorizatie",
+        "path": "nrautorizatie",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "nrautorizatie",
+            "count": 1,
+            "values": [
+              "2324"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "obiectivele",
+        "path": "obiectivele",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "obiectivele",
+            "count": 1,
+            "values": [
+              "Am urmărit punerea în valoare a stratigrafiei"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "perioade",
+        "path": "perioade",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "perioade",
+            "count": 1,
+            "values": [
+              "sec. XV - XVI, sf. sec. XV-mijl. sec. XIX"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "prezentaresit",
+        "path": "prezentaresit",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "prezentaresit",
+            "count": 1,
+            "values": [
+              "Aceasta este o biserică splendidă"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "referintebibl",
+        "path": "referintebibl",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "referintebibl",
+            "count": 1,
+            "values": [
+              "http://www.cimec.ro/cronicaarheo/2030401/bibliografie"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "rezultateleinterpretare",
+        "path": "rezultateleinterpretare",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "rezultateleinterpretare",
+            "count": 1,
+            "values": [
+              "http://www.cimec.ro/cronicaarheo/2030401/rezultate"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "rezumat",
+        "path": "rezumat",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "rezumat",
+            "count": 1,
+            "values": [
+              "http://www.cimec.ro/cronicaarheo/2030401/rezumat"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "scurtadescriere",
+        "path": "scurtadescriere",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "scurtadescriere",
+            "count": 1,
+            "values": [
+              "http://www.cimec.ro/cronicaarheo/2030401/descriere"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "sector",
+        "path": "sector",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "sector",
+            "count": 1,
+            "values": [
+              ""
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "tehnicianaliza",
+        "path": "tehnicianaliza",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "tehnicianaliza",
+            "count": 1,
+            "values": [
+              "http://www.cimec.ro/cronicaarheo/2030401/analiza"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "tipsit",
+        "path": "tipsit",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "tipsit",
+            "count": 1,
+            "values": [
+              "biserică şi necropolă"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "toponim",
+        "path": "toponim",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "toponim",
+            "count": 1,
+            "values": [
+              ""
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      },
+      {
+        "name": "valcontract",
+        "path": "valcontract",
+        "count": 1,
+        "types": [
+          {
+            "name": "String",
+            "bsonType": "String",
+            "path": "valcontract",
+            "count": 1,
+            "values": [
+              "32434354"
+            ],
+            "total_count": 0,
+            "probability": 1,
+            "unique": 1,
+            "has_duplicates": false
+          }
+        ],
+        "total_count": 1,
+        "type": "String",
+        "has_duplicates": false,
+        "probability": 1
+      }
+    ],
+    "count": 1
   }
+]

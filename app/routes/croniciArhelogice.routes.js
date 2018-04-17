@@ -1,40 +1,34 @@
-/**
- * Realizarea rutelor API-ului
- * Dependințe: express, mongoose, modelul de cronică
- */
-
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Cronica = require('../models/croniciArheologice.model');
 
-// GET
+// GET localhost:8000/cronicile
 router.get('/', (req, res, next) => {
-    Cronica.find().exec().then( cronici => {
-        console.log(cronici);
-        res.json(cronici);
-    }).catch(err => {
-        console.log(err);
-        res.json({eroarea: err})        
-    });
-    res.json({
-        mesaj: 'fac GET pe /cronici'
-    });
+    Cronica
+        .find()
+        .exec()
+        .then( cronici => {
+            res.json(cronici);
+        }).catch( err => {
+            res.json({err})        
+        });
 });
 
-// GET cu id
+// GET localhost:8000/cronicile/5a9aa163f0b9330452e333e8
 router.get('/:caId', (req, res, next) => {
     const id = req.params.caId;
-    Cronica.findById(id).exec().then(doc => {
-        console.log(doc); 
-        res.json({doc});       
-    }).catch(err => {
-        console.log(err);
-        res.json({error: err});
-    });
+    Cronica
+        .findById(id)
+        .exec()
+        .then( doc => {
+            res.json({doc});       
+        }).catch( err => {
+            res.json({error: err});
+        });
 });
 
-// POST
+// gestionează cererile cu POST
 router.post('/', (req, res, next) => {    
     // Încarcă cu date modelul
     const cronica = new Cronica({
@@ -70,47 +64,56 @@ router.post('/', (req, res, next) => {
         rezumat: req.body.rezumat,
         actualizat: req.body.actualizat        
     });
-    cronica.save().then(result => {
-        console.log(result);        
-    }).catch(err => {
-        console.log(err);
-    });
-    res.json({
-        mesaj: 'fac POST pe /cronici',
-        amCreeatCronica: cronica
-    });
+    // salvează datele în bază
+    cronica
+        .save()
+        .then(result => {
+            res.json(result); 
+        }).catch(err => {
+            res.json({error: err})
+        });
 });
 
 // gestionează cererile cu POST
-router.post('/:caId', (req, res, next) => {
-
-});
+// router.post('/:caId', (req, res, next) => {
+//     console.log(req.toValue());
+// });
 
 // gestionează cererile pe PATCH
 router.patch('/:caId', (req, res, next) => {
     const id = req.param.caId;
     const updOps = {};
-    for (let [key, value] of Object.entries(req.body)){
-        // console.log(key, value);
+    
+    // ia obiectul primit care este parțialul modificat al întregii înregistrări
+    // și construiește un obiect de lucru pentru metoda update
+    for (let [key, value] of Object.entries(req.body)) {
         updOps[key] = value;
-    }
-    Product.update({id}, { 
-        $set: updOps
-    }).then(result => {
-        res.json({result});
-    }).catch(err => {
-        res.json({message: err.message});
-    });
+    };
+
+    Cronica
+        .update( {id}, { 
+            $set: updOps
+        })
+        .then(result => {
+            res.json({result}); // întoarce întreaga înregistrare actualizată
+        })
+        .catch(err => {
+            res.json({message: err.message});
+        });
 });
 
 // gestionează cererile pe DELETE
 router.delete('/:caId', (req, res, next) => {
     const id = req.params.caId;
-    Product.remove({id}).then(result => {
-        res.json(result);
-    }).catch(err => {
-        res.json({error: err.message});
-    }); // șterge toare înregistrările cu acest id
+
+    Cronica
+        .remove({id})
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            res.json({error: err.message});
+        });
 });
 
 module.exports = router;
