@@ -3,6 +3,41 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Cronica = require('../models/croniciArheologice.model');
 
+/*
+Strategia de încărcare a resurselor
+// instanțiere multer
+// multer oferă middleware-uri care pot fi adăugate înaintea oricărui handler
+*/
+const multer = require('multer');
+
+// Unde stocăm pe disc
+const storage = multer.diskStorage({
+    destination: function setDestination (req, file, cb) {
+        cb(null, './repo/');
+    },
+    filename: function setFilename (req, file, cb) {
+        cb(null, new Date().toISOString() + '-' + file.originalname);
+    }
+});
+// filtrează tipul fișierelor permise
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/png' || file.mimetype === 'image/png') {
+        cb(null, true); // acceptă uploadul
+    } else {
+        cb(null, false); // respinge uploadul
+    };
+};
+// configurarea setărilor multer
+const upload = multer({
+    storage,
+    limits: {fileSize: 1024 * 1024 * 10},
+    fileFilter
+});
+// TODO: Fă câte un director pentru imaginile asociate unei înregistrări.
+
+/**
+ * RUTELE!!!
+*/
 // GET localhost:8000/cronicile
 router.get('/', (req, res, next) => {
     Cronica
@@ -28,8 +63,15 @@ router.get('/:caId', (req, res, next) => {
         });
 });
 
-// gestionează cererile cu POST
-router.post('/', (req, res, next) => {    
+// POST cu posibilitate de încărcare resurse
+router.post('/', upload.single('image'), (req, res, next) => {   
+    /* pentru că execuți middleware-ul înaintea handlerului,
+    // vei avea la dispoziție metodele middleware-ului.
+    // În metodă introduci numele câmpului; am ales image 
+    // Multer oferă ceva în plus: req.file */
+
+    //TODO: desparte incarcarea fisierelor de cea a datelor si introdu un camp în înregistrare pentru fișierele alocate
+
     // Încarcă cu date modelul
     const cronica = new Cronica({
         _id: new mongoose.Types.ObjectId(),
@@ -62,8 +104,11 @@ router.post('/', (req, res, next) => {
         concluziirap: req.body.concluziirap,
         referintebibl: req.body.referintebibl,
         rezumat: req.body.rezumat,
-        actualizat: req.body.actualizat        
+        actualizat: req.body.actualizat
     });
+
+    // adăugare support pentru încărcare multiform data (suport oferit de multer)
+
     // salvează datele în bază
     cronica
         .save()
@@ -94,10 +139,10 @@ router.patch('/:caId', (req, res, next) => {
         .update( {id}, { 
             $set: updOps
         })
-        .then(result => {
+        .then( result => {
             res.json({result}); // întoarce întreaga înregistrare actualizată
         })
-        .catch(err => {
+        .catch( err => {
             res.json({message: err.message});
         });
 });

@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 
+//TODO: introdu și validări la un moment dat mai avansat
+
 // subschemă inclusă în documentul de bază
 let Colectiv = mongoose.Schema({
   numeprenum: {type: String, trim: true},

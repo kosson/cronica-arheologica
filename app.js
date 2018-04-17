@@ -19,10 +19,14 @@ mongoose.connection.once('open', function () {
 const caRoutes = require('./app/routes/croniciArhelogice.routes');
 // importă rutele pentru preloadere
 const preloadRoutes = require('./app/routes/preloaders.routes');
+// importă ruta pentru crearea unui nou utilizator
+const userRoutes = require('./app/routes/users.routes');
 
 /*MIDDLEWARE-UL folosit*/
 // fă logging la rute
 app.use(morgan('dev'));
+// rută de încărcare a resurselor
+app.use('/repo', express.static('repo'));
 // parsează corpul cererii
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
