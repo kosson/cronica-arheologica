@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Cronica = require('../models/croniciArheologice.model');
+const checkAuth = require('../controllers/checkAuth.controller');
 
 /*
-Strategia de încărcare a resurselor
-// instanțiere multer
-// multer oferă middleware-uri care pot fi adăugate înaintea oricărui handler
+* Strategia de încărcare a resurselor
+* # instanțiere multer
+* multer oferă middleware-uri care pot fi adăugate înaintea oricărui handler
 */
 const multer = require('multer');
 
@@ -35,18 +36,17 @@ const upload = multer({
 });
 // TODO: Fă câte un director pentru imaginile asociate unei înregistrări.
 
-/**
- * RUTELE!!!
+/*
+* RUTELE!!!
 */
 // GET localhost:8000/cronicile
 router.get('/', (req, res, next) => {
     Cronica
         .find()
-        .exec()
         .then( cronici => {
-            res.json(cronici);
+            res.status(200).json(cronici);
         }).catch( err => {
-            res.json({err})        
+            res.status(500).json({err})        
         });
 });
 
@@ -57,22 +57,27 @@ router.get('/:caId', (req, res, next) => {
         .findById(id)
         .exec()
         .then( doc => {
-            res.json({doc});       
-        }).catch( err => {
-            res.json({error: err});
+            res.status(200).json({doc});       
+        })
+        .catch( err => {
+            res.status(500).json({error: err});
         });
 });
 
-// POST cu posibilitate de încărcare resurse
-router.post('/', upload.single('image'), (req, res, next) => {   
-    /* pentru că execuți middleware-ul înaintea handlerului,
-    // vei avea la dispoziție metodele middleware-ului.
-    // În metodă introduci numele câmpului; am ales image 
-    // Multer oferă ceva în plus: req.file */
+// POST /cronicile pentru a încărca resurse
+// ATENȚIE: rută protejată; middleware-ul checkAuth este rulat primul
+router.post('/', checkAuth, (req, res, next) => {
+    /*
+    * router.post('/', upload.single('image'), (req, res, next) => {  
+    * pentru că execuți middleware-ul înaintea handlerului,
+    * vei avea la dispoziție metodele middleware-ului.
+    * În metodă introduci numele câmpului; am ales image 
+    * Multer oferă ceva în plus: req.file 
+    */
 
     //TODO: desparte incarcarea fisierelor de cea a datelor si introdu un camp în înregistrare pentru fișierele alocate
 
-    // Încarcă cu date modelul
+    // Încarcă cu date modelul Cronica
     const cronica = new Cronica({
         _id: new mongoose.Types.ObjectId(),
         denumire: req.body.denumire,
@@ -107,15 +112,15 @@ router.post('/', upload.single('image'), (req, res, next) => {
         actualizat: req.body.actualizat
     });
 
-    // adăugare support pentru încărcare multiform data (suport oferit de multer)
+    // TODO: adăugare support pentru încărcare multiform data (suport oferit de multer)
 
     // salvează datele în bază
     cronica
         .save()
         .then(result => {
-            res.json(result); 
+            res.status(200).json(result); 
         }).catch(err => {
-            res.json({error: err})
+            res.status(500).json({error: err})
         });
 });
 
@@ -124,8 +129,9 @@ router.post('/', upload.single('image'), (req, res, next) => {
 //     console.log(req.toValue());
 // });
 
-// gestionează cererile pe PATCH
-router.patch('/:caId', (req, res, next) => {
+// PATCH pe /cronicile/id-ulCaStringHash
+// ATENȚIE: rută protejată; middleware-ul checkAuth este rulat primul
+router.patch('/:caId', checkAuth, (req, res, next) => {
     const id = req.param.caId;
     const updOps = {};
     
@@ -140,15 +146,16 @@ router.patch('/:caId', (req, res, next) => {
             $set: updOps
         })
         .then( result => {
-            res.json({result}); // întoarce întreaga înregistrare actualizată
+            res.status(200).json({result}); // întoarce întreaga înregistrare actualizată
         })
         .catch( err => {
-            res.json({message: err.message});
+            res.status(500).json({message: err.message});
         });
 });
 
-// gestionează cererile pe DELETE
-router.delete('/:caId', (req, res, next) => {
+// DELETE /cronicile/id-ulCaStringHash
+// ATENȚIE: rută protejată; middleware-ul checkAuth este rulat primul
+router.delete('/:caId', checkAuth, (req, res, next) => {
     const id = req.params.caId;
 
     Cronica

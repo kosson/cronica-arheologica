@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Preloader = require('../models/preloadere.model');
+const checkAuth = require('../controllers/checkAuth.controller');
+
+// TODO: Explorează posibilitatea de a încărca preloaderele în localStorage
 
 // gestionează cererile pe GET
-router.get('/', (req, res, next) => {
+router.get('/', checkAuth, (req, res, next) => {
     Preloader
     .find()
     .exec()
@@ -15,9 +18,6 @@ router.get('/', (req, res, next) => {
         // console.log(err);
         res.json({eroarea: err})
     });
-    // res.json({
-    //     mesaj: 'fă GET pe /preloadere și adu-mi totul'
-    // });
 });
 
 // gestionează cererile GET cu id

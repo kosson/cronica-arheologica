@@ -15,21 +15,26 @@ mongoose.connection.once('open', function () {
     console.log("M-am conectat la bază! Totul OK!");
 });
 
-// importă rutele pentru cronici
+// Creează obiectul de gestiune a rutelor pe CRONICI
 const caRoutes = require('./app/routes/croniciArhelogice.routes');
-// importă rutele pentru preloadere
+// creează obiectul de gestiune al rutelor PRELOADERS
 const preloadRoutes = require('./app/routes/preloaders.routes');
-// importă ruta pentru crearea unui nou utilizator
+// crearea obiectului de gestiune a rutelor pe USERS
 const userRoutes = require('./app/routes/users.routes');
 
 /*MIDDLEWARE-UL folosit*/
 // fă logging la rute
 app.use(morgan('dev'));
-// rută de încărcare a resurselor
-app.use('/repo', express.static('repo'));
 // parsează corpul cererii
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+// atașarea rutelor pe căi
+// rută de încărcare a resurselor
+app.use('/repo', express.static('repo'));
+app.use('/cronicile', caRoutes);
+app.use('/preloaders', preloadRoutes);
+app.use('/user', userRoutes);
 
 /*TRATAREA CORS*/
 // trimiți de la server headerele
@@ -44,9 +49,7 @@ app.use((req, res, next) => {
     next(); // invocă next pentru a trimite cererile pe rute
 });
 
-// atașarea rutelor pe rădăcini
-app.use('/cronicile', caRoutes);
-app.use('/preloaders', preloadRoutes);
+
 
 /*Crearea mecanismului de tratare a erorilor*/
 // colectează toate erorile care ar putea apărea
