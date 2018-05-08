@@ -5,61 +5,56 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dbConfig = require('./config/database.config.js');
 
-/*Conectarea la baza de date*/
+/*Database Connection*/
 mongoose.connect(dbConfig.url);
 mongoose.connection.on('error', function () {
-    console.log('Nu mă pot conecta la bază. Renunț!');
+    console.log('Database connection failure');
     process.exit();
 });
 mongoose.connection.once('open', function () {
-    console.log("M-am conectat la bază! Totul OK!");
+    console.log("Database connection succeeded");
 });
 
-// Creează obiectul de gestiune a rutelor pe CRONICI
-const caRoutes = require('./app/routes/croniciArhelogice.routes');
-// creează obiectul de gestiune al rutelor PRELOADERS
+// route management for chronicles
+const chronicleRoutes = require('./app/routes/chronicles.routes');
+// route management for preloaders
 const preloadRoutes = require('./app/routes/preloaders.routes');
-// crearea obiectului de gestiune a rutelor pe USERS
+// route management for users
 const userRoutes = require('./app/routes/users.routes');
 
-/*MIDDLEWARE-UL folosit*/
-// fă logging la rute
+/*MIDDLEWARE*/
 app.use(morgan('dev'));
-// parsează corpul cererii
+
+// body parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-// atașarea rutelor pe căi
-// rută de încărcare a resurselor
+// attach routes to paths
 app.use('/repo', express.static('repo'));
-app.use('/cronicile', caRoutes);
+app.use('/chronicles', chronicleRoutes);
 app.use('/preloaders', preloadRoutes);
 app.use('/user', userRoutes);
 
-/*TRATAREA CORS*/
-// trimiți de la server headerele
+/*CORS*/
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Acces-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    // tratează OPTIONS trimise de browser înainte de a face postingul - preflight
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    // treats OPTIONS sent by the browser before posting
     if(req.method === 'OPTIONS'){
         res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE');
         return res.status(200).json({});
     };
-    next(); // invocă next pentru a trimite cererile pe rute
+    next(); // invoke next
 });
 
-
-
-/*Crearea mecanismului de tratare a erorilor*/
-// colectează toate erorile care ar putea apărea
+/*Create the error handling mechanism*/
 app.use((req, res, next) => {
-    const error = new Error('Nu am găsit resursa');
+    const error = new Error('Resource not found');
     error.status = 404;
-    next(error); // cascadează transmiterea erorilor
+    next(error); // cascade error transmission
 });
 
-// gestionează toate erorile
+// manage all errors
 app.use((error, req, res) => {
     res.status(error.status || 500);
     res.json({

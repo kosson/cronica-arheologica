@@ -1,26 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Preloader = require('../models/preloadere.model');
+const Preloader = require('../models/preloaders.model');
 const checkAuth = require('../controllers/checkAuth.controller');
 
-// TODO: Explorează posibilitatea de a încărca preloaderele în localStorage
+// TODO: Explore the possibility to load preloaders into localStorage
 
-// gestionează cererile pe GET
+// manages GET requests
 router.get('/', checkAuth, (req, res, next) => {
     Preloader
     .find()
     .exec()
-    .then(preloadere => {
-        // console.log(preloadere);
-        res.json(preloadere);
+    .then(preloaders => {
+        res.json(preloaders);
     }).catch((err) => {
-        // console.log(err);
-        res.json({eroarea: err})
+        res.json({err: err})
     });
 });
 
-// gestionează cererile GET cu id
+// manages GET requests with id
 router.get('/:preloaderId', (req, res, next) => {
     const id = req.params.preloaderId;
     Preloader.findById(id).exec().then(doc => {
@@ -29,7 +27,7 @@ router.get('/:preloaderId', (req, res, next) => {
             res.json({doc});  
         } else {
             res.json({
-                mesaj: "Nu am resursa... plângi!"
+                message: "Missing resource"
             });
         }
     }).catch(err => {
@@ -59,20 +57,19 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// gestionează cererile cu POST
+// manages POST requests
 router.post('/:preloaderId', (req, res, next) => {
 
 });
 
-// gestionează cererile pe PATCH
+// manages PATCH requests
 router.patch('/:preloaderId', (req, res, next) => {
     const id = req.param.preloaderId;
     const updOps = {};
     for (let [key, value] of Object.entries(req.body)){
-        // console.log(key, value);
         updOps[key] = value;
     }
-    Product.update({id}, { 
+    Preloader.update({id}, {
         $set: updOps
     }).then(result => {
         res.json({result});
@@ -81,14 +78,14 @@ router.patch('/:preloaderId', (req, res, next) => {
     });
 });
 
-// gestionează cererile pe DELETE
+// manages DELETE requests
 router.delete('/:preloaderId', (req, res, next) => {
     const id = req.params.preloaderId;
-    Product.remove({id}).then(result => {
+    Preloader.remove({id}).then(result => {
         res.json(result);
     }).catch(err => {
         res.json({error: err.message});
-    }); // șterge toare înregistrările cu acest id
+    });
 });
 
 module.exports = router;
