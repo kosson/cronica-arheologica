@@ -54,7 +54,6 @@ exports.user_signup = (req, res, next) => {
         });
 };
 
-
 // Login
 exports.user_login = (req, res, next) => {
     // search the database for an email
