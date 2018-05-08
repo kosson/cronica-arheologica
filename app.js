@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.use('/repo', express.static('repo'));
 app.use('/chronicles', chronicleRoutes);
 app.use('/preloaders', preloadRoutes);
-app.use('/user', userRoutes);
+app.use('/users', userRoutes);
 
 /*CORS*/
 app.use((req, res, next) => {
