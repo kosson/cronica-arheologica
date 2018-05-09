@@ -28,7 +28,7 @@ const userRoutes = require('./app/routes/users.routes');
 app.use(morgan('dev'));
 
 /*CORS*/
-app.use(cors())
+app.use(cors());
 
 // body parser
 app.use(bodyParser.urlencoded({extended: false}));
