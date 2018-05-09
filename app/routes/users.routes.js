@@ -6,10 +6,21 @@ const User = require('../models/users.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+// GET - /users/
+router.get('/', (req, res, next) => {
+    User
+        .find()
+        .then( users => {
+            res.status(200).json(users);
+        }).catch( err => {
+        res.status(500).json({err})
+    });
+});
+
 /*
-* POST - /user/signup
+* POST - /users/register
 */
-router.post('/signup', (req, res, next) => {
+router.post('/register', (req, res, next) => {
     // search if the email already exists
     User
         .find({email: req.body.email})
@@ -58,7 +69,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 /*
-* POST - /user/login
+* POST - /users/login
 */
 router.post('/login', (req, res, next) => {
     User
