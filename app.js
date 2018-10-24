@@ -3,12 +3,13 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const dbConfig = require('./config/database.config.js');
 
 const app = express();
 
 /*Database Connection*/
-mongoose.connect(dbConfig.url);
+//TODO: Șterge linia de mai jos
+// mongoose.connect(dbConfig.url);
+mongoose.connect(process.env.url);
 mongoose.connection.on('error', function () {
     console.log('Database connection failure');
     process.exit();
@@ -34,8 +35,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+// answer test
+// app.get('/', function (req, res) {
+//   res.send('Salut!')
+// })
+
+// serve the static resources
+app.use(express.static('repo'))
+app.use('/', express.static('public'));
+
 // attach routes to paths
-app.use('/repo', express.static('repo'));
 app.use('/chronicles', chronicleRoutes);
 app.use('/preloaders', preloadRoutes);
 app.use('/users', userRoutes);

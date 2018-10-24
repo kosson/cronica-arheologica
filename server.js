@@ -1,3 +1,4 @@
+require('dotenv').config(); // Sets up dotenv as soon as our application starts
 const http = require('http');
 const app = require('./app');
 const port = 8000;

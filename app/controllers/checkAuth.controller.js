@@ -1,8 +1,3 @@
-/**
- * Middleware utilizat pentru a proteja anumite rute
- * acesta este un middleware prin care este verificat dacă un utilizator este autentificat sau nu
- */
-const settings = require('../../config/settings');
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
@@ -16,7 +11,10 @@ module.exports = (req, res, next) => {
     // [Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6...]
     // în header câmpul trebuie să fie „Authorization”
     // console.log(token);
-    const decoded = jwt.verify(token, settings.JWT_SECRET);
+
+    // TODO: șterge linia de dedesubt
+    // const decoded = jwt.verify(token, settings.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     // metoda verify, va decoda conținutul și îl va verifica.
 
     // adaugi în obiectul request o nouă proprietate cu tokenul decodificat

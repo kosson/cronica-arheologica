@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cronica arheologică</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Cronica Cercetărilor Arheologice din România</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Chronicles">Cronici</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Utilizatori">Utilizatori</a>
+              </li>
+
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li> -->
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container">
+        <form class="" action="index.html" method="post">
+          <fieldset>
+            <legend>Localizarea completă a sitului</legend>
+            <div class="form-group">
+              <label for="denumire" class="col-sm-2 col-form-label col-form-label-sm">Denumire:</label>
+              <input type="text" id="denumire" class="form-control" name="denumire" placeholder="Numele detaliat al cronicii">
+              <label for="denumire"><abbr title="required">*</abbr></label>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <div class="form-group">
+                  <label for="localitate" class="col-sm-2 col-form-label col-form-label-sm">Localitate:</label>
+                  <input type="text" id="localitate" class="form-control" name="localitate" placeholder="Introdu numele localității">
+                  <label for="username"><abbr title="required">*</abbr></label>
+                </div>
+                <div class="form-group">
+                  <label for="județ" class="col-sm-2 col-form-label col-form-label-sm">Județ:</label>
+                  <input type="text" id="judet" class="form-control" name="judet" placeholder="Județ">
+                  <label for="judet">
+                    <abbr title="required">*</abbr>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="adresa" class="col-sm-2 col-form-label col-form-label-sm">Adresa:</label>
+                  <input type="text" id="adresa" class="form-control" name="adresa" placeholder="dacă se cunoaște">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="uat" class="col-sm-2 col-form-label col-form-label-sm">UAT:</label>
+                  <input type="text" id="uat" class="form-control" name="uat" placeholder="UAT (comună, oraș sau municipiu)">
+                  <label for="uat">
+                    <abbr title="required">*</abbr>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="siruta" class="col-sm-2 col-form-label col-form-label-sm">SIRUTA:</label>
+                  <input type="text" id="siruta" class="form-control" name="siruta" placeholder="Cod SIRUTA">
+                  <label for="siruta">
+                    <abbr title="required">*</abbr>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="ran" class="col-sm-2 col-form-label col-form-label-sm">Cod RAN al sitului:</label>
+                  <input type="text" id="ran" class="form-control" name="ran" placeholder="">
+                </div>
+              </div>
+              </div>
+            <div class="form-group">
+              <label for="toponim" class="col-sm-2 col-form-label col-form-label-sm">Toponim:</label>
+              <input type="text" id="toponim" class="form-control" name="toponim" placeholder="dacă se cunoaște">
+            </div>
+            <div class="form-group">
+              <label for="sector" class="col-sm-2 col-form-label col-form-label-sm">Sector:</label>
+              <input type="text" id="sector" class="form-control" name="sector" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="anul" class="col-sm-2 col-form-label col-form-label-sm">Anul campaniei:</label>
+              <input type="text" id="anul" class="form-control" name="anul" placeholder="">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Tip de sit:</legend>
+            <div class="form-group">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                (cf. listei integrate în baza de date care conține lista aprobate prin Ordinul nr. 2562/4.10.2010 privind aprobarea Procedurii de acordare a autorizațiilor pentru cercetarea arheologică, anexele 11 și 12)
+              </small>
+              <p>
+                <label for="tipSit"></label>
+                <input type="text" id="tipSit" name="anul" value="">
+                <select id="tipSitOpt" class="custom-select" name="">
+                  <optgroup label="locuire">
+                    <optgroup label="locuire civilă">
+                      <option value="111">așezare deschisă</option>
+                      <option value="112">așezare fortificată</option>
+                      <option value="113">așezare urbană</option>
+                      <option value="114">așezare rurală</option>
+                      <option value="115">așezare în peșteră</option>
+                      <option value="116">așezare sezonieră</option>
+                      <option value="116">tell</option>
+                    </optgroup>
+                    <optgroup label="locuire militară">
+                      <option value="121">castru</option>
+                      <option value="122">cetate</option>
+                      <option value="123">castel</option>
+                      <option value="124">fort</option>
+                      <option value="125">fortificații</option>
+                    </optgroup>
+                    <optgroup label="structură de cult/religioasă">
+                      <option value="131">templu</option>
+                      <option value="132">sanctuar</option>
+                      <option value="133">biserică</option>
+                      <option value="134">mănăstire</option>
+                    </optgroup>
+                  </optgroup>
+                </select>
+              </p>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Categoria de sit:</legend>
+            <div class="form-group">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                (confom listei integrate în baza de date)
+              </small>
+              <p>
+                <label for="catSit"></label>
+                <input type="text" id="catSit" name="anul" value="">
+                <select id="catSitOpt" class="custom-select" name="">
+                  <option>Test</option>
+                </select>
+              </p>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Încadrare cronologică</legend>
+            <div class="form-group">
+              <p>
+                (conform listei integrate în baza de date care conține care conține lista aprobate prin Ordinul nr. 2562/4.10.2010 privind aprobarea Procedurii de acordare a autorizațiilor pentru cercetarea arheologică, anexele 11 și 12)
+              </p>
+              <p>
+                <label for="perioade" class="col-sm-2 col-form-label col-form-label-sm">Perioade:</label>
+                <input type="text" id="perioade" name="anul" value="">
+                <select id="perioade" class="custom-select" name="">
+                  <option>Test</option>
+                </select>
+              </p>
+            </div>
+            <div class="form-group">
+              <small id="" class="form-text text-muted">
+                (conform listei integrate în baza de date)
+              </small>
+              <p>
+                <label for="epoci" class="col-sm-2 col-form-label col-form-label-sm">Epoci:</label>
+                <input type="text" id="epoci" name="anul" value="">
+                <select id="epoci" class="custom-select" name="">
+                  <option>Test</option>
+                </select>
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="culturi" class="col-sm-2 col-form-label col-form-label-sm">Culturi arheologice:</label>
+              <input type="text" id="culturi" class="form-control" name="localitate" value="">
+              <label for="culturi">
+                <abbr title="required">*</abbr>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Colectiv</legend>
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                    <label for="numPrenum"></label>
+                    <input type="text" id="numPrenum" class="form-control" name="numPrenum" placeholder="Nume și prenume" value="">
+                    <label for="numPrenum">
+                      <abbr title="required">*</abbr>
+                    </label>
+                    <span>(neprescurtat) al fiecărui membru al colectivului</span>
+                </div>
+                <div class="form-group">
+                  <label for="afiliere"></label>
+                  <input type="text" id="afiliere" class="form-control" name="afiliere" placeholder="Afiliere" value="">
+                  <label for="afiliere">
+                    <abbr title="required">*</abbr>
+                  </label>
+                  <span>(instituţia)</span>
+                </div>
+                <div class="form-group">
+                  <label for="rol"></label>
+                  <input type="text" id="rol" class="form-control" name="rol" placeholder="Rol" value="">
+                  <label for="rol">
+                    <abbr title="required">*</abbr>
+                  </label>
+                  <span>(responsabil de şantier, responsabil de sector)</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="tipCercetare"></label>
+                <input type="text" id="tipCercetare" class="form-control" name="tipCercetare" placeholder="Tip cercetare" value="">
+                <label for="tipCercetare">
+                  <abbr title="required">*</abbr>
+                </label>
+                <span>(responsabil de şantier, responsabil de sector)</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" name="adaugarol">Adaugă la colectiv</button>
+            <div class="roluriAdd">
+              <p>ATENȚIE! Este doar pentru mocking</p>
+              <div class="roluriAdded">Adelina, Iovan; coordonator de șantier; Aburi</div>
+              <div class="roluriAdded">Daniel, Chițovan; referend științific; Cinat</div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend></legend>
+            <div class="row">
+              <div class="form-group">
+                <p>
+                  <label for="nrAut">Număr autorizație:</label>
+                  <input type="number" id="nrAut" class="form-control" name="nrAut" value="">
+                </p>
+              </div>
+              <div class="form-group">
+                <p>
+                  <label for="anAut">An:</label>
+                  <input type="text" id="anAut" class="form-control" name="anAut" value="">
+                </p>
+              </div>
+              <div class="form-group">
+                <p>
+                  <label for="valContr">Valoare contract finanțare, atât pentru cercetarea sistematică cât și pentru cercetarea preventivă:</label>
+                  <input type="text" id="valContr" class="form-control" name="valContr" value="">
+                </p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Datele calendaristice ale campaniei</legend>
+            <div class="form-group">
+              <label for="debutCamp" class="col-sm-2 col-form-label col-form-label-sm">Data începerii:</label>
+              <input id="debutCamp" type="date" value=""/>
+            </div>
+            <div class="form-group">
+              <label for="finalCamp" class="col-sm-2 col-form-label col-form-label-sm">Data finalizării</label>
+              <input id="finalCamp" type="date" value=""/>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Raport</legend>
+            <div class="form-group">
+              <label for="scurtaPrez" class="col-lg-2 col-form-label col-form-label-lg">Scurtă prezentare a sitului:</label>
+              <textarea name="scurtaPrez" rows="8" cols="80"></textarea>
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                amplasare, tip de sit, data descoperirii, un foarte scurt istoric al cercetărilor, relaţia cu mediul şi cu alte situri din zonă, relaţia cu alte sectoare din acelaşi sit, stare de conservare actuală, importanţă)
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="obiectCercet" class="col-sm-2 col-form-label col-form-label-sm">Obiectivele:</label>
+              <input id="obiectCercet" type="text" value=""/>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="prezRez" class="col-sm-2 col-form-label col-form-label-lg">Rezultate și interpretarea lor:</label>
+                  <textarea name="prezRez" rows="4" cols="40"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="descrDesco" class="col-sm-2 col-form-label col-form-label-lg">Scurtă descriere a descoperirilor, cu menţionarea locului unde sunt depuse:</label>
+                  <textarea name="descrDesco" rows="4" cols="40"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="tehnicCercet" class="col-sm-2 col-form-label col-form-label-lg">Tehnici de cercetare utilizate, analize, prelucrări statistice:</label>
+                  <textarea name="tehnicCercet" rows="4" cols="40"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="concluzii" class="col-sm-2 col-form-label col-form-label-lg">Concluzii:</label>
+                  <textarea name="concluzii" rows="4" cols="40"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="obiectCercetViit" class="col-sm-2 col-form-label col-form-label-lg">Obiectivele cercetărilor viitoare:</label>
+                  <textarea name="obiectCercetViit" rows="4" cols="40"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="propuneriViit" class="col-sm-2 col-form-label col-form-label-lg">Propuneri de conservare, protejare, punere în valoare:</label>
+                  <textarea name="propuneriViit" rows="4" cols="40"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <fieldset>
+              <legend>Referinţe bibliografice</legend>
+              <p>se utilizează note de subsol în sistem Harvard, după modelul ce se regăsește mai jos</p>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="rezumatBibl" class="col-sm-2 col-form-label col-form-label-lg">Rezumat:</label>
+                    <textarea name="rezumatBibl" rows="4" cols="40"></textarea>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                      un rezumat de circa 400 de cuvinte într-o limbă de circulaţie (de preferință engleză, eventual  franceză sau germană)
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="bibliografie" class="col-sm-2 col-form-label col-form-label-lg">Bibliografie:</label>
+                    <textarea name="biblografie" rows="4" cols="40"></textarea>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                      se va utiliza modelul de mai jos
+                    </small>
+                    <cite>
+                      <p>Norme pentru referințele bibliografice</p>
+                      <ul>
+                        <li>
+                          Citarea unui autor: autor, an, pagină (ex.: Țentea 2018, 89); acelaşi model se utilizează şi în cazul figurilor şi planşelor (ex.: Țentea 2017, 182, fig. 25); în cazul în care doi autori au acelaşi nume, se trece şi iniţiala prenumelui (ex.: O. Țentea 2017, 123; C. Țentea 2018, 194)
+                        </li>
+                        <li>
+                          Citarea a doi autori: vor fi trecute numele autorilor, despărțite de virgulă, an, pagină (ex.: Țentea, Lungu, 2017, 20);
+                        </li>
+                        <li>
+                          Citarea a trei sau mai mulţi autori: se notează numele primului autor, urmat de abrevierea et alli, an, pagină;
+                        </li>
+                        <li>
+                          În cazul în care un autor are mai multe lucrări din același an, se adaugă o literă imediat după an (ex.: Țentea 2017b, 32);
+                        </li>
+                      </ul>
+                      <p>Exemple redactare bibliografie</p>
+                      <ul>
+                        <li>
+                          <dl class="">
+                            <dt>Cărți:</dt>
+                            <dd>Țentea 2017<br/>
+                            Țentea Ovidiu, Castrul roman de la Mâlăiești, București, 2011</dd>
+                          </dl>
+                        </li>
+                        <li>
+                          <dl class="">
+                            <dt>Articole în periodice:</dt>
+                            <dd>Țentea 2017<br/>
+                            Țentea Ovidiu, Castrul roman de la Mâlăiești, București. În Cronica cercetărilor arheologice din România, 19, 2011, p. 83-84</dd>
+                          </dl>
+                        </li>
+                      </ul>
+                    </cite>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="js/popper.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.bundle.js" charset="utf-8"></script>
+  </body>
+</html>
