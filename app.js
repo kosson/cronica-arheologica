@@ -1,15 +1,24 @@
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+var path = require('path')
+var express = require('express');
+var cors = require('cors');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var favicon = require('serve-favicon');
+var mongoose = require('mongoose');
+var exphbs = require('express-handlebars');
 
-const app = express();
+var app = express();
+// rendering engine: handlebars
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 /*Database Connection*/
 //TODO: Șterge linia de mai jos
 // mongoose.connect(dbConfig.url);
-mongoose.connect(process.env.url);
+mongoose.connect(process.env.MONGO_LOCAL_CONN);
 mongoose.connection.on('error', function () {
     console.log('Database connection failure');
     process.exit();
@@ -40,14 +49,22 @@ app.use(bodyParser.json());
 //   res.send('Salut!')
 // })
 
-// serve the static resources
-app.use(express.static('repo'))
-app.use('/', express.static('public'));
+// uploaded resources
+// app.use(express.static('repo'))
+// trimite o pagina statica
+// app.use('/', express.static('public'));
 
+/* ROUTES */
 // attach routes to paths
 app.use('/chronicles', chronicleRoutes);
 app.use('/preloaders', preloadRoutes);
 app.use('/users', userRoutes);
+
+// GET - ROOT
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.get('/', function (req, res, next) {
+    res.render('fisa');
+});
 
 /*Create the error handling mechanism*/
 app.use((req, res, next) => {

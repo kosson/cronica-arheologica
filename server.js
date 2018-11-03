@@ -5,5 +5,5 @@ const port = 8000;
 // const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 server.listen(port, function mes(){
-    console.log('Server pe 8000');    
+    console.log('Server pe 8000');
 });
