@@ -10,7 +10,7 @@ const User = require('../models/users.model');
 const UserController = require('../controllers/user.controller');
 
 // GET - /users/
-//TODO: La un moment X, mută în zona de administrare
+// TODO: La un moment X, mută în zona de administrare
 router.get('/', (req, res, next) => {
   User
     .find()

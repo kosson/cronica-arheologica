@@ -104,6 +104,10 @@ A challenge password []:acid77burn
 An optional company name []:Sarminfo
 ```
 
-Este generat un fișier cu extensia .csr (Certificate Signing Request).
+Este generat un fișier cu extensia .csr (Certificate Signing Request). Acest fișier a fi utilizat pentru mașina care cere certificarea.
 
-Pentru a porni serverul HTTPS trebuie citite aceste certificate.
+Creează certificatul!
+
+```bash
+openssl x509 -signkey private.key -in cronicaarheologica.csr -req -days 365 -out cronicaarheologica.crt
+```

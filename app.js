@@ -1,19 +1,21 @@
-var path = require('path')
+var path = require('path');
 var express = require('express');
 var cors = require('cors');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var mongoose = require('mongoose');
-var exphbs = require('express-handlebars');
+// var exphbs = require('express-handlebars');
 
+// create the app
 var app = express();
+
 // rendering engine: handlebars
-app.engine('.hbs', exphbs({
-  defaultLayout: 'main',
-  extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
+// app.engine('.hbs', exphbs({
+//   defaultLayout: 'main',
+//   extname: '.hbs'
+// }));
+app.set('view engine', 'pug');
 
 /*Database Connection*/
 //TODO: Șterge linia de mai jos
@@ -53,6 +55,8 @@ app.use(bodyParser.json());
 // app.use(express.static('repo'))
 // trimite o pagina statica
 // app.use('/', express.static('public'));
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
 /* ROUTES */
 // attach routes to paths
@@ -63,10 +67,17 @@ app.use('/users', userRoutes);
 // GET - ROOT
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.get('/', function (req, res, next) {
-    res.render('fisa', {
-      title: "Cronica Cercetărilor Arheologice din România",
-      name_chronicle: "Titlul Cronicii"
-    });
+    // res.render('fisa', {
+    //   title: "Cronica Cercetărilor Arheologice din România",
+    //   name_chronicle: "Titlul Cronicii"
+    // });
+    res.render('index', { title: process.env.APP_TITLE, message: process.env.APP_TITLE });
+});
+
+// GET /users/login
+
+app.get('/users/login', function (req, res, next) {
+    res.render('login', {title: process.env.APP_TITLE});
 });
 
 /*Create the error handling mechanism*/
