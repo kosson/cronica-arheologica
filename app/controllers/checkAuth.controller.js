@@ -12,8 +12,6 @@ module.exports = (req, res, next) => {
     // în header câmpul trebuie să fie „Authorization”
     // console.log(token);
 
-    // TODO: șterge linia de dedesubt
-    // const decoded = jwt.verify(token, settings.JWT_SECRET);
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     // metoda verify, va decoda conținutul și îl va verifica.
 

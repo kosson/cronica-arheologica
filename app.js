@@ -63,7 +63,10 @@ app.use('/users', userRoutes);
 // GET - ROOT
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.get('/', function (req, res, next) {
-    res.render('fisa');
+    res.render('fisa', {
+      title: "Cronica Cercetărilor Arheologice din România",
+      name_chronicle: "Titlul Cronicii"
+    });
 });
 
 /*Create the error handling mechanism*/
