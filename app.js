@@ -1,5 +1,5 @@
 var path = require('path');
-var express = require('express');
+var fs = require('fs');
 var cors = require('cors');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -7,7 +7,20 @@ var favicon = require('serve-favicon');
 var mongoose = require('mongoose');
 // var exphbs = require('express-handlebars');
 
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
+
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+
+var root = { hello: () => 'Hello world!' };
+
 // create the app
+var express = require('express');
 var app = express();
 
 // rendering engine: handlebars
@@ -17,10 +30,9 @@ var app = express();
 // }));
 app.set('view engine', 'pug');
 
-/*Database Connection*/
-//TODO: Șterge linia de mai jos
-// mongoose.connect(dbConfig.url);
-mongoose.connect(process.env.MONGO_LOCAL_CONN);
+/* Database Connection */
+mongoose.set('useCreateIndex', true);
+mongoose.connect(process.env.MONGO_LOCAL_CONN, { useNewUrlParser: true });
 mongoose.connection.on('error', function () {
     console.log('Database connection failure');
     process.exit();
@@ -29,6 +41,7 @@ mongoose.connection.once('open', function () {
     console.log("Database connection succeeded");
 });
 
+// 
 // route management for chronicles
 const chronicleRoutes = require('./app/routes/chronicles.routes');
 // route management for preloaders
@@ -36,8 +49,10 @@ const preloadRoutes = require('./app/routes/preloaders.routes');
 // route management for users
 const userRoutes = require('./app/routes/users.routes');
 
-/*MIDDLEWARE*/
-app.use(morgan('dev'));
+/* LOGGER */
+// create a write stream (in append mode)
+// var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
+// app.use(morgan('combined', {stream: accessLogStream}));
 
 /*CORS*/
 app.use(cors());
@@ -46,23 +61,24 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-// answer test
-// app.get('/', function (req, res) {
-//   res.send('Salut!')
-// })
-
-// uploaded resources
-// app.use(express.static('repo'))
-// trimite o pagina statica
-// app.use('/', express.static('public'));
+// static resources
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+app.use('/js', express.static(__dirname + '/public/js/'));  // APPLICATION SENT TO CLIENT
+app.use('/css', express.static(__dirname + '/public/css/'));// STYLESHEETS SENT TO CLIENT
 
 /* ROUTES */
 // attach routes to paths
 app.use('/chronicles', chronicleRoutes);
 app.use('/preloaders', preloadRoutes);
 app.use('/users', userRoutes);
+
+// graphql endpoint
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+  }));
 
 // GET - ROOT
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

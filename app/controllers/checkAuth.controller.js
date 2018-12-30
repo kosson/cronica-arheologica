@@ -19,13 +19,12 @@ module.exports = (req, res, next) => {
     // viitoarele cereri vor avea disponibil jwt-ul verificat si vor putea ușor verifica dacă userul este autentificat
     req.userData = decoded;
     // dacă autentificarea a reușit, cheamă următorul middleware
-    console.log(decoded);
-
+    // console.log(decoded);
     next();
   } catch (error) {
     return res.status(401).json({
-      message: 'Autentificarea a eșuat!',
+      message: 'Unauthorized',
       error: error.message
     });
-  };
+  }
 };

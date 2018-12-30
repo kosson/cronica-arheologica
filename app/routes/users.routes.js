@@ -17,15 +17,15 @@ router.get('/', (req, res, next) => {
     .then( users => {
       res.status(200).json(users);
     }).catch( err => {
-    res.status(500).json({err})
+    res.status(500).json({err});
   });
 });
 
 /* POST */
-/* /users/signup */
+// ROUTE: users/signup
 router.post('/signup', UserController.user_signup);
 
-/* /users/login */
+// ROUTE: users/login
 router.post('/login', UserController.user_login);
 
 /* DELETE - /user/201 */

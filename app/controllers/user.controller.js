@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+// setting the socket conections
+// var app = require('../../app');
+// var io = require('socket.io')(httpsserver);
+
+// Load model resource
 const User = require("../models/users.model");
 
 /**
@@ -39,13 +44,13 @@ exports.user_signup = (req, res, next) => {
                 // console.log(err);
                 res.json({error: err});
               });
-          };
+          }
         });
       }
     });
 };
 
-// Login
+// LOGIN (POST)
 exports.user_login = (req, res, next) => {
   // search the database for an email
   User
@@ -55,13 +60,13 @@ exports.user_login = (req, res, next) => {
       if (user.length < 1) {
         // HTTP Status: 401 - Unauthorized
         return res.status(401).json({message: 'The email or the password are incorrect'});
-      };
+      }
 
       // compares the token received and executes the callback
       bcrypt.compare(req.body.password, user[0].password, (err, result) => {
         if (err) {
           return res.status(500).json({ message: 'The email or the password are incorrect'});
-        };
+        }
         // if the resulting object exists the email and the password are correct
         if (result) {
           // generates a signed token with an expiration period
@@ -73,12 +78,16 @@ exports.user_login = (req, res, next) => {
             process.env.JWT_SECRET,
             {expiresIn: "2h"}
           );
+
           // send the token
+          // the answer is a json object
+          // FIXME: Refactor for header
           return res.json({
             message: "Authentication succeeded",
             token: token
           });
-        };
+          // TODO: trimite-l în header. In client, păstrează-l doar în memorie.
+        }
         // no correspondent in the database
         res.json({
           message: "Authentication failed"
