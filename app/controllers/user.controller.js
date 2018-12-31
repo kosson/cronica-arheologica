@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+var mongoose = require("mongoose");
+var bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
+var chalk = require('chalk');
 // setting the socket conections
-// var app = require('../../app');
+var app = require('../../app');
 // var io = require('socket.io')(httpsserver);
 
 // Load model resource
@@ -86,6 +87,7 @@ exports.user_login = (req, res, next) => {
             message: "Authentication succeeded",
             token: token
           });
+
           // TODO: trimite-l în header. In client, păstrează-l doar în memorie.
         }
         // no correspondent in the database

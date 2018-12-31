@@ -1,24 +1,22 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const express   = require('express');
+const router    = express.Router();
+const mongoose  = require('mongoose');
+const bcrypt    = require('bcrypt');
+const jwt       = require('jsonwebtoken');
 // middleware 
-const checkAuth = require('../middleware/auth');
-
-const User = require('../models/users.model');
+const checkAuth      = require('../middleware/auth');
+const User           = require('../models/users.model');
 const UserController = require('../controllers/user.controller');
 
 // GET - /users/
-// TODO: La un moment X, mută în zona de administrare
 router.get('/', (req, res, next) => {
   User
     .find()
     .then( users => {
       res.status(200).json(users);
     }).catch( err => {
-    res.status(500).json({err});
-  });
+      res.status(500).json({err});
+    });
 });
 
 /* POST */

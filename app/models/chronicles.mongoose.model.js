@@ -1,7 +1,6 @@
 let mongoose = require('mongoose');
 
-//TODO: add validation
-
+// member of the excavating or research team
 const Member = mongoose.Schema({
   fullName: {type: String, trim: true},
   affiliation: [{type: String, trim: true}],
@@ -18,7 +17,8 @@ const Chronicle = mongoose.Schema({
   },
   name: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
   city: {type: String, trim: true},
   county: {type: String, trim: true},
